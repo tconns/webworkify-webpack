@@ -175,7 +175,7 @@ module.exports = function (moduleId, options) {
 
   var requiredModules = options.all ? { main: Object.keys(sources.main) } : getRequiredModules(sources, moduleId)
 
-  var src = ''
+  var src = options.globalVariable ? options.globalVariable : '';
 
   Object.keys(requiredModules).filter(function (m) { return m !== 'main' }).forEach(function (module) {
     var entryModule = 0
